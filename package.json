@@ -1,0 +1,46 @@
+{
+  "name": "image-gen-mcp",
+  "version": "3.2.0",
+  "description": "Image Generation MCP Server - Generate marketing creatives using Google Gemini and OpenAI Images",
+  "type": "module",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc && node dist/index.js",
+    "start": "node dist/index.js",
+    "watch": "tsc --watch",
+    "deploy": "wrangler deploy",
+    "worker:dev": "wrangler dev",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "mcp",
+    "nano-banana",
+    "image-generation",
+    "image-editing",
+    "ai"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.29.0",
+    "hono": "^4.12.14",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20260422.1",
+    "@types/node": "^20.10.6",
+    "typescript": "^5.3.3",
+    "wrangler": "^4.84.1"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+  ,
+  "cloudflare": {
+    "bindings": {
+      "OPENROUTER_API_KEY": { "description": "OpenRouter API key for image generation (use wrangler secret put)" },
+      "MCP_AUTH_TOKEN": { "description": "Authentication token required for MCP requests (use wrangler secret put)" }
+    }
+  }
+}

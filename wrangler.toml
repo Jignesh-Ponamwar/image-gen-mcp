@@ -1,0 +1,17 @@
+name = "image-gen-mcp"
+main = "dist/index.js"
+compatibility_date = "2025-01-01"
+compatibility_flags = [ "nodejs_compat" ]
+
+[observability.logs]
+enabled = true
+invocation_logs = true
+
+[vars]
+# Secrets are stored via `wrangler secret put` — do NOT commit values here.
+# Required secrets (add via `npx wrangler secret put <NAME>`):
+#   OPENROUTER_API_KEY — OpenRouter API key
+#   MCP_AUTH_TOKEN — optional token to secure the MCP endpoint
+#
+# If you plan to use Workers KV / D1 / R2, add bindings in `wrangler.toml` or the Cloudflare dashboard.
+# Example package.json `cloudflare.bindings` entries were added to help Deploy-to-Cloudflare UI show descriptions.
